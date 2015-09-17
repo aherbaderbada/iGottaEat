@@ -19,7 +19,7 @@ public class IGEDriver {
 		YelpAPI yelpApi = new YelpAPI(CONSUMER_KEY, CONSUMER_SECRET, TOKEN, TOKEN_SECRET);
 		
 		System.out.println("Please enter your location:");
-		userLocation = sc.next();
+		userLocation = sc.nextLine();
 		restaurants = yelpApi.queryAPI(yelpApi, userLocation);
 		randomPlace(restaurants);
 	}
