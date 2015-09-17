@@ -59,15 +59,11 @@ public class IGEDriver {
 		} else if (option == 4){
 			System.out.println("To be implemented.");
 		}
-		
-		
-<<<<<<< HEAD
-=======
+
 		System.out.println("Please enter your location:");
 		userLocation = sc.nextLine();
 		restaurants = yelpApi.queryAPI(yelpApi, userLocation);
 		randomPlace(restaurants);
->>>>>>> origin/master
 	}
 
 
