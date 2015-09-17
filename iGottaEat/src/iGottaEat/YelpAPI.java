@@ -15,7 +15,6 @@ import org.scribe.oauth.OAuthService;
 
 public class YelpAPI {
 	private static final String API_HOST = "api.yelp.com";
-	private static final int SEARCH_LIMIT = 10;
 	private static final String SEARCH_PATH = "/v2/search";
 
 	OAuthService service;
@@ -46,7 +45,6 @@ public class YelpAPI {
 		OAuthRequest request = createOAuthRequest(SEARCH_PATH);
 		request.addQuerystringParameter("term", "food");
 		request.addQuerystringParameter("location", location);
-		request.addQuerystringParameter("limit", String.valueOf(SEARCH_LIMIT));
 		return sendRequestAndGetResponse(request);
 	}
 
@@ -100,7 +98,7 @@ public class YelpAPI {
 		 * Parses the JSON to retrieve the name, rating, URL, phone, and address
 		 * and populates the ArrayList parsedRestaurants
 		 */
-		for(int i = 0; i < SEARCH_LIMIT - 1; i++) {
+		for(int i = 0; i < businesses.size() - 1; i++) {
 			JSONObject currentBusinessJSON = (JSONObject) businesses.get(i);
 			String currentName = currentBusinessJSON.get("name").toString();
 			Double currentRating = (Double) currentBusinessJSON.get("rating");

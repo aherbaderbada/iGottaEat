@@ -4,7 +4,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class IGEDriver {
 
-	ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>(); 
+	public static ArrayList<Restaurant> restaurants = null; 
 	public static ArrayList<User> users = new ArrayList<User>();
 	
 	private static final String CONSUMER_KEY = "NVaDEK37pXM5ZGRfnN3NRg";
@@ -14,7 +14,6 @@ public class IGEDriver {
 
 	public static void main(String[] args) {
 		String userLocation;
-		ArrayList<Restaurant> restaurants = null;
 		int option = -1;
 		Scanner sc = new Scanner(System.in);
 		YelpAPI yelpApi = new YelpAPI(CONSUMER_KEY, CONSUMER_SECRET, TOKEN, TOKEN_SECRET);
@@ -59,11 +58,6 @@ public class IGEDriver {
 		} else if (option == 4){
 			System.out.println("To be implemented.");
 		}
-
-		System.out.println("Please enter your location:");
-		userLocation = sc.nextLine();
-		restaurants = yelpApi.queryAPI(yelpApi, userLocation);
-		randomPlace(restaurants);
 	}
 
 
