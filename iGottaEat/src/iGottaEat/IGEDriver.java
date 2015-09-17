@@ -61,6 +61,13 @@ public class IGEDriver {
 		}
 		
 		
+<<<<<<< HEAD
+=======
+		System.out.println("Please enter your location:");
+		userLocation = sc.nextLine();
+		restaurants = yelpApi.queryAPI(yelpApi, userLocation);
+		randomPlace(restaurants);
+>>>>>>> origin/master
 	}
 
 
