@@ -5,7 +5,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class IGEDriver {
 
 	ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>(); 
-	ArrayList<User> users = new ArrayList<User>();
+	public static ArrayList<User> users = new ArrayList<User>();
 	
 	private static final String CONSUMER_KEY = "NVaDEK37pXM5ZGRfnN3NRg";
 	private static final String CONSUMER_SECRET = "RgH-3tzg5URWf-hK8G3NA8anG-s";
@@ -15,13 +15,52 @@ public class IGEDriver {
 	public static void main(String[] args) {
 		String userLocation;
 		ArrayList<Restaurant> restaurants = null;
+		int option = -1;
 		Scanner sc = new Scanner(System.in);
 		YelpAPI yelpApi = new YelpAPI(CONSUMER_KEY, CONSUMER_SECRET, TOKEN, TOKEN_SECRET);
+		System.out.println("Welcome to the Random Food Generator Playlist.");
 		
-		System.out.println("Please enter your location:");
-		userLocation = sc.next();
-		restaurants = yelpApi.queryAPI(yelpApi, userLocation);
-		randomPlace(restaurants);
+		System.out.println("Here are your options: ");
+		System.out.println("1 - Create account.");
+		System.out.println("2 - Login.");
+		System.out.println("3 - Generate a random restaurant");
+		System.out.println("4 - View most popular restaurants");
+		System.out.println("What do you want to do? Type in corresponding number: ");
+		option = sc.nextInt();
+		
+		if(option == 1){
+			System.out.println("Thank you for using iGottaEat");
+			System.out.println("Please enter in your email address: ");
+			String tempEmail, tempPassword, tempLast, tempFirst;
+			sc.nextLine();
+			tempEmail= sc.nextLine();
+			System.out.println("Your email address is: " + tempEmail);
+			System.out.println("Please enter in your password: ");
+			tempPassword = sc.nextLine();
+			
+			
+			/*Do not use parser to split/chomp the two, just have as separate params*/
+			System.out.println("What is your first name?");
+			tempFirst = sc.nextLine();
+			System.out.println("What is your last name?");
+			tempLast = sc.nextLine();
+			
+			
+			/*Create new user*/
+			User temp = new User(tempEmail, tempPassword, tempLast, tempFirst);
+			users.add(temp);
+		} else if (option == 2){
+			System.out.println("Not available to the public yet.");
+		} else if (option == 3){
+			System.out.println("Please enter your location (Zip code/City, State) :");
+			userLocation = sc.next();
+			restaurants = yelpApi.queryAPI(yelpApi, userLocation);
+			randomPlace(restaurants);
+		} else if (option == 4){
+			System.out.println("To be implemented.");
+		}
+		
+		
 	}
 
 
