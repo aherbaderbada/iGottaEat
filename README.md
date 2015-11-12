@@ -5,3 +5,5 @@ Social Random Food Generator
 2. Add the .jar files inside the folder lib by doing: right click->Build Path->Add External Archives->Navigate to iGottaEat\lib\ and select the two .jar files
 3. Open IGEDriver.java
 4. Press run
+
+Don't forgot to change the class path stuff to where to downloaded it.
