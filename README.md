@@ -7,3 +7,6 @@ Social Random Food Generator
 4. Press run
 
 Don't forgot to change the class path stuff to where to downloaded it.
+
+Rails:
+Download and go to iges folder. Type in bin\rails server to start local host. Visit http://localhost:3000/.
