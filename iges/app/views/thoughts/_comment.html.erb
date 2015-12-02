@@ -1,0 +1,15 @@
+<p>
+  <strong>Commenter:</strong>
+  <%= thought.thinker %>
+</p>
+ 
+<p>
+  <strong>Comment:</strong>
+  <%= thought.body %>
+</p>
+
+<p>
+  <%= link_to 'Destroy Comment', [thought.restaurant, thought],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
