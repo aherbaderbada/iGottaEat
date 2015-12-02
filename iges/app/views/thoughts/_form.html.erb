@@ -1,0 +1,13 @@
+<%= form_for([@restaurant, @restaurant.thoughts.build]) do |f| %>
+  <p>
+    <%= f.label :thinker %><br>
+    <%= f.text_field :thinker %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

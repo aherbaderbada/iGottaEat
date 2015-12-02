@@ -86,12 +86,12 @@ class yelpHelp {
 
   // Produces random place
   public static String randomPlace() {
-    restaurants = shuffle(restaurants); // shuffles places like a card deck
+    if (i == 0)
+      restaurants = shuffle(restaurants); // shuffles places like a card deck
     Restaurant randomRestaurant = restaurants.get(i);
     i++;
-    // Reshuffles Arraylist once all options are used
+    // Resets counter once all options are used
     if (i == restaurants.size()) {
-      restaurants = shuffle(restaurants);
       i = 0;
     }
     

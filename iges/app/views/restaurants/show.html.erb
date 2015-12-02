@@ -1,0 +1,24 @@
+<p>
+  <strong>Go eat at <%= @place[@i].name %></strong>
+</p>
+
+<p>
+  Phone: <%= @place[@i].display_phone %> <br>
+  Rating: <%= @place[@i].rating.to_s %> <br>
+	<% @place[@i].location.display_address.each do |s| %>
+    <%= s %> <br>
+  <% end %>
+	<%= link_to @place[@i].url, @place[@i].url %>
+</p>
+
+<% @i += 1 %>
+<% if @i == @place.length %>
+  <% @place = shuffle(@place) %>
+  <% @i = 0 %>
+<% end %>
+
+<!-- just refreshes the page to generate another restaurant -->
+<form>
+<input type = "button" onClick = "history.go(0)" value = "Generate a different restaurant">
+</form>
+<%= link_to "Try a different location", restaurants_path %>
