@@ -6,4 +6,4 @@ Social Random Food Generator
 3. Open IGEDriver.java
 4. Press run
 
-If you want to run the rails app just download and go to the iges folder, type in bin\rails server, then go to http://localhost:3000/. 
+Don't forgot to change the class path stuff to where to downloaded it.
