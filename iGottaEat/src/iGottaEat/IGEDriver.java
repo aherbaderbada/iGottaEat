@@ -50,6 +50,8 @@ public class IGEDriver {
 			users.add(temp);
 		} else if (option == 2){
 			System.out.println("Not available to the public yet.");
+			//Random place user to be added here after login
+			//Generate playlist to be added here
 		} else if (option == 3){
 			System.out.println("Please enter your location (Zip code/City, State) :");
 			userLocation = sc.next();
@@ -86,6 +88,39 @@ public class IGEDriver {
 				places = shuffle(places);
 				i = 0;
 			}
+		} while (!ans.equals("n"));
+		sc.close();
+	}
+	
+	private static void randomPlaceUser (ArrayList<Restaurant> places, User u) {
+
+		Scanner sc = new Scanner(System.in);
+		String ans = "";
+		int i = 0; // counter to iterate through arraylist, reset to 0 when reshuffled
+		//Obtain the list of places and shuffle them
+		places = shuffle(places);
+		do {
+			Restaurant randomRestaurant = places.get(0);
+			System.out.println("Will you eat at :\n" + randomRestaurant.getName() + "?");
+			System.out.println("Rating: " + randomRestaurant.getRating().toString());
+			System.out.println("Phone: " + randomRestaurant.getNumber());
+			System.out.println("Address: " + randomRestaurant.getAddress());
+			System.out.println(randomRestaurant.getURL());
+			
+			
+			System.out.println("Don't like it? Enter any key to get another place or type n to quit.");
+			ans = sc.next();
+			if(u.recentlyVisited.contains(randomRestaurant)) {
+				//Plan to add date added
+				System.out.println("Note: You have already eaten here already recently.");
+			}
+			
+			i++;
+			if (i == places.size()) {
+				places = shuffle(places);
+				i = 0;
+			}
+
 		} while (!ans.equals("n"));
 		sc.close();
 	}
